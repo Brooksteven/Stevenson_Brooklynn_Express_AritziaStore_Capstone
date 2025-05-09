@@ -1,4 +1,4 @@
-import Cart from '../../models/carts/carts-model.js'
+import Cart from '../../models/cart/cart-model.js'
 
 //this is my seed for seed route
 async function seedCarts(req, res) {

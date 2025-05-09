@@ -39,10 +39,10 @@ router.get('/new', itemsController.renderNewForm)
 // router.delete('/:id', itemsController.deleteItem)
 
 // // Update
-// router.put('/:id', itemsController.updateItem);
+// router.put('/:id', itemsController.updateItem); //update qty button
 
-// Create
-router.post('/', itemsController.createItem);
+// // Create
+// router.post('/', itemsController.createItem); //this is for the future for an admin adding items to the store. comment function out in controllers as well
 
 
 // // Edit

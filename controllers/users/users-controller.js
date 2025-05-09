@@ -1,4 +1,4 @@
-import User from '../../models/users/users-model.js'
+import User from '../../models/user/user-model.js'
 
 //this is my seed for seed route
 async function seedUsers(req, res) {

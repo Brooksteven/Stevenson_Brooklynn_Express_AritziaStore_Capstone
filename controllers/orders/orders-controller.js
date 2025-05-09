@@ -1,4 +1,4 @@
-import Order from '../../models/orders/orders-model.js'
+import Order from '../../models/order/order-model.js'
 
 //this is my seed for seed route
 async function seedOrders(req, res) {

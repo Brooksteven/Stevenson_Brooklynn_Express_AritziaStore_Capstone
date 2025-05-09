@@ -28,28 +28,28 @@ router.get('/seed', cartsController.seedCarts) //instead of defining a callback 
 
 
 // Index (Step 1 when building a route)
-router.get('/', cartsController.getCarts);
+router.get('/', cartsController.getCarts);//we don't want to fetch all carts so we don't need  //show shopping cart by clicking on shopping cart button. this needs to be fetched. User auth: make it specific to the user. Every cart needs to have a user if-key. 
 
 
 // New
-// router.get('/new', cartsController.renderNewForm)
+// router.get('/new', cartsController.renderNewForm)//use these routes to render a view so don't need 
 
 
 // // Delete
-router.delete('/:id', cartsController.deleteCart)
+router.delete('/:id', cartsController.deleteCart) //delete button
 
 // // Update
-router.put('/:id', cartsController.updateCart);
+router.put('/:id', cartsController.updateCart); 
 
 // Create
 router.post('/', cartsController.createCart);
 
 
 // // Edit
-// router.get('/:id', itemsController.renderEditForm);
+// router.get('/:id', itemsController.renderEditForm); //use these routes to render a view so don't need
 
 // //Show
-router.get('/:id', cartsController.getCarts); //why is this plural
+router.get('/:id', cartsController.getCarts); //to show a specific cart 
 
 
 export default router;

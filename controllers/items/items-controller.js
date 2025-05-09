@@ -1,4 +1,4 @@
-import Item from '../../models/items/items-model.js'
+import Item from '../../models/item/item-model.js'
 
 //this is my seed for seed route
 async function seedItems(req, res) {
@@ -61,6 +61,8 @@ async function createItem(req, res){
     }
 }
 
+//if qty drops to 0 then delete. inc and dec would be calling the update to the item through fetch request updateItem
+
 
 // funciton for New
 //this is what renders the new.ejs file
@@ -83,5 +85,6 @@ export {
     seedItems,
     getItems,
     createItem,
-    renderNewForm
+    renderNewForm,
+    // updateItem
 }
