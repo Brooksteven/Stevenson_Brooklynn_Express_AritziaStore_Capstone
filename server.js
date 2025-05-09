@@ -8,7 +8,7 @@ import cartsRouter from './routes/carts/carts-router.js'
 import itemsRouter from './routes/items/items-router.js'
 import ordersRouter from './routes/orders/orders-router.js'
 import usersRouter from './routes/users/users-router.js'
-
+import authRouter from './routes/auth/auth-router.js'
 
 const app = express() //this initializes this backend express app
 const PORT = process.env.PORT || 3001 //// This is conditional assignment. PORT conditionall is being assigned a value that comes from our PORT environment variable, if it doesn't find it, set it to 3001 instead
@@ -21,7 +21,8 @@ app.use(cors());
 app.use('/items', itemsRouter); //this is saying for all routes that start with /items look for them in itemsRouter
 app.use('/orders', ordersRouter);
 app.use('/users', usersRouter);
-app.use('/carts', cartsRouter)
+app.use('/carts', cartsRouter);
+app.use('/auth', authRouter);
 
 
 //define a base route

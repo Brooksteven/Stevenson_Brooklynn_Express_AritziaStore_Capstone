@@ -92,6 +92,8 @@ function generateAccessToken(user) {
 
 // const jwt = require('jsonwebtoken')
 
-app.listen(PORT, (req, res) => {
-    console.log(`Server is listening on PORT: ${PORT}`);
-});
+// app.listen(PORT, (req, res) => {
+//     console.log(`Server is listening on PORT: ${PORT}`);
+// });
+
+export default router;
