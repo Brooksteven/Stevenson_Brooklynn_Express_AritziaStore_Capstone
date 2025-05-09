@@ -1,0 +1,31 @@
+{
+  "name": "backend-express-aritziastore",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Brooksteven/Stevenson_Brooklynn_Express_AritziaStore_Capstone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Brooksteven/Stevenson_Brooklynn_Express_AritziaStore_Capstone/issues"
+  },
+  "homepage": "https://github.com/Brooksteven/Stevenson_Brooklynn_Express_AritziaStore_Capstone#readme",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.14.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
