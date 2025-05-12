@@ -14,6 +14,7 @@ const app = express() //this initializes this backend express app
 const PORT = process.env.PORT || 3001 //// This is conditional assignment. PORT conditionall is being assigned a value that comes from our PORT environment variable, if it doesn't find it, set it to 3001 instead
 
 
+//middleware
 app.use(express.urlencoded({ extended: true })) ////this allows us to have a req.body for whatever forms are submitted //for the checkout form where user enters personal information to check out
 app.use(express.json()) //this allows us to have a req.body whenever json data is submitted directly without a form, coming from reqbin or postman etc
 app.use(cors());

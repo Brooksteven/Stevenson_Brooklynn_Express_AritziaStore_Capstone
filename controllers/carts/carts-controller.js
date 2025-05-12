@@ -1,12 +1,13 @@
 import Cart from '../../models/cart/cart-model.js'
 
 //this is my seed for seed route
+//this is what populates the database
 async function seedCarts(req, res) {
     try {
         //we need access to the model we created in /routes/items/items-router.js 'Items'
         //anytime you're interacting with the database, we need to do it asychronously by using async/await 
         //we put await here because we want to make sure that all fruits get deleted before we begin to execute anything else, WHY***?
-       await Cart.deleteMany({}) //we leave the object empty so it will query for everything instead of something specific. It deletes all of the documents inside of this specific database.
+       await Cart.deleteMany({}) //delete all existing carts then .create will reopulate //we leave the object empty so it will query for everything instead of something specific. It deletes all of the documents inside of this specific database.
        await Cart.create(
         {
            productName: 'Cruiselinen Aria Dress',
@@ -29,7 +30,7 @@ async function seedCarts(req, res) {
            price: '128' 
         }
      );
-     res.status(201).redirect('/carts'); //created = 201. we redirect the user back to /items because /items is the index route where we can see all the items
+     res.status(201).redirect('/carts'); //created = 201. we redirect the user back to /items because /items is the index route where we can see all the items //another way to do it res.status(201).json({ sucess: 'Database Seeded.' }) as long as you send something back you'll be fine because if you don't send anything back your browser will be infinitely loading
     } catch (error) {
         res.status(400).json({ error: error.message })
     }
@@ -41,7 +42,7 @@ async function seedCarts(req, res) {
 
 async function getCarts(req, res){
     try {
-        const carts = await Cart.find({}); //here we are finding all the items
+        const carts = await Cart.find({}); //here we are finding all the Carts
         res.status(200).json(carts); // here we share what we find with the clients.
     } catch (error) {
         res.status(400).json({ error: error.message })
@@ -62,7 +63,7 @@ async function getCarts(req, res){
 // function for Delete 
 async function deleteCart(req, res){
     try {
-        const cart = await Cart.findByIdAndDelete(req.params.id);
+        const cart = await Cart.findByIdAndDelete(req.params.id); //this is an admin route where the admin can find that specifc cart and delete it/. You can allow the user to delete their cart as well req.params.id allows us to find the specific cart
         res.status(200).json(cart); 
     } catch (error) {
         res.status(400).json({ error: error.message })
@@ -73,7 +74,7 @@ async function deleteCart(req, res){
 // function for Update 
 async function updateCart(req, res){
     try {
-        const cart = await Cart.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        const cart = await Cart.findByIdAndUpdate(req.params.id, req.body, { new: true }); //find cart by id so we can update it req.body will contain the update, not sure if this is the case with qty increase and decrease //when you do findByIdAndUpdate when the update returns, it will return it in it's original form so to prevent this we need { new: true } this returns the updated document, not the original, it will still change without this but it won't show in postman
         res.status(200).json(cart)
     } catch (error) {
         res.status(400).json({ error: error.message })
@@ -89,6 +90,15 @@ async function createCart(req, res){
         const cart = await Cart.create(req.body);
         console.log(cart);
         res.status(201).json(cart); //send the item created back as a response
+    } catch (error) {
+        res.status(400).json({ error: error.message })
+    }
+}
+
+async function getCart(req, res){
+    try {
+        const cart = await Cart.findById(req.params.id)
+        res.status(200).json(cart);
     } catch (error) {
         res.status(400).json({ error: error.message })
     }
@@ -134,6 +144,7 @@ export {
     deleteCart,
     updateCart,
     createCart,
+    getCart,
     renderNewForm,
     renderEditForm
 }

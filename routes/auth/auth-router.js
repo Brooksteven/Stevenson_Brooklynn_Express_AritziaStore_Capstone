@@ -6,6 +6,8 @@ import express from 'express' //this imports the express package
 const app = express() //this initializes this backend express app
 const PORT = 4000
 
+const router = express.Router();
+
 // code from Youtube video JWT Authentication Tutorial - Node.js
 import jwt from 'jsonwebtoken'
 

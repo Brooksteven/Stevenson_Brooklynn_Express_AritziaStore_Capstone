@@ -1,4 +1,4 @@
-import express from 'express';
+import express from 'express'; //need this to create a router using this
 import * as cartsController from '../../controllers/carts/carts-controller.js' // import * = imports everything and puts it inside a itemsController object, so to access those imports we have to access it through itemsController object and we access things inside an object by doing . notation (i.e. .seedsItems)
 
 
@@ -28,6 +28,7 @@ router.get('/seed', cartsController.seedCarts) //instead of defining a callback 
 
 
 // Index (Step 1 when building a route)
+//admin route only
 router.get('/', cartsController.getCarts);//we don't want to fetch all carts so we don't need  //show shopping cart by clicking on shopping cart button. this needs to be fetched. User auth: make it specific to the user. Every cart needs to have a user if-key. 
 
 
@@ -49,7 +50,7 @@ router.post('/', cartsController.createCart);
 // router.get('/:id', itemsController.renderEditForm); //use these routes to render a view so don't need
 
 // //Show
-router.get('/:id', cartsController.getCarts); //to show a specific cart 
+router.get('/:id', cartsController.getCart); //to show a specific cart 
 
 
 export default router;
