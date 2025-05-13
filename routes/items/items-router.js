@@ -36,7 +36,7 @@ router.get('/new', itemsController.renderNewForm)
 
 
 // // Delete
-// router.delete('/:id', itemsController.deleteItem)
+router.delete('/:id', itemsController.deleteItem)
 
 // // Update
 // router.put('/:id', itemsController.updateItem); //update qty button
@@ -48,8 +48,8 @@ router.get('/new', itemsController.renderNewForm)
 // // Edit
 // router.get('/:id', itemsController.renderEditForm);
 
-// //Show
-// router.get('/:id', itemsController.getFruit);
+//Show
+router.get('/:id', itemsController.getItem);
 
 
 export default router;

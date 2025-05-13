@@ -9,6 +9,7 @@ const itemSchema = new mongoose.Schema({
     name: { type: String, required: true, lowercase: true }, //this is a validator //if a user puts there name in all caps it will come to the database is all lowercase letters
     color: { type: String, required: true, lowercase: true },
     qty: { type: Number, min: 0, max: 100 },
+    price: { type: Number, required: true, min: 0 }
 
     //More Examples
     // email: { type: String, unique: true, required: true },

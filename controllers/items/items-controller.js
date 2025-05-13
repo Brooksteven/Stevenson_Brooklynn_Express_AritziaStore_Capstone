@@ -11,22 +11,26 @@ async function seedItems(req, res) {
         {
            name: 'Cruiselinen Aria Dress',
            color: 'Natural Ecru',
-           qty: '1'
+           qty: '1',
+           price: '148'
         },
         {
            name: 'Eleta Linen Maxi Dress',
            color: 'Sundried Olive',
-           qty: '1'
+           qty: '1',
+           price: '168'
         },
         {
            name: 'Little Cropped Jacket',
            color: 'Smoky Sage',
-           qty: '1'
+           qty: '1',
+           price: '138.60'
         },
         {
             name: '90s Slit Midi Dress',
             color: 'Dew Blue',
-            qty: '1'  
+            qty: '1',
+            price: '128'   
         }
      );
      res.status(201).redirect('/items'); //created = 201. we redirect the user back to /items because /items is the index route where we can see all the items
@@ -61,6 +65,28 @@ async function createItem(req, res){
     }
 }
 
+
+//function to DELETE Item from shopping cart
+async function deleteItem(req, res){
+    try {
+        const item = await Item.findByIdAndDelete(req.params.id); //this is an admin route where the admin can find that specifc cart and delete it/. You can allow the user to delete their cart as well req.params.id allows us to find the specific cart
+        res.status(200).json(item); 
+    } catch (error) {
+        res.status(400).json({ error: error.message })
+    }
+}
+
+
+//function for getting one item
+async function getItem(req, res){
+    try {
+        const item = await Item.findById(req.params.id)
+        res.status(200).json(item);
+    } catch (error) {
+        res.status(400).json({ error: error.message })
+    }
+}
+
 //if qty drops to 0 then delete. inc and dec would be calling the update to the item through fetch request updateItem
 
 
@@ -85,6 +111,8 @@ export {
     seedItems,
     getItems,
     createItem,
+    deleteItem,
+    getItem,
     renderNewForm,
     // updateItem
 }
